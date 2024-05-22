@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+
+
+    <title>Klub100 AutoPlasher</title>
+    
+    
+    
+    <link rel='stylesheet prefetch' href='/jquery-ui.css'>
+<link rel='stylesheet prefetch' href='/bootstrap.min.css'>
+
+        <link rel="stylesheet" href="style.css">
+    
+  </head>
+
+  <body>
+
+<div class="container">
+  <div class="channels">
+    <a href="#" title="Иллюзион+ (плашки)" class="action-button shadow animate illPlus"><img src="/img/ill+.png" width="100" height="100"></img></a>
+    <a href="#" title="Русский Иллюзион (плашки)" class="action-button shadow animate rusIll"><img src="/Rusill.png" width="100" height="100"></img></a>
+    <a href="#" title="ZooPark (плашки)" class="action-button shadow animate zooPark"><img src="/Zoo.png" width="100" height="100"></img></a>
+    <a href="#" title="Еврокино (плашки)" class="action-button shadow animate euroKino"><img src="/Euro.png" width="100" height="100"></img></a>
+    <a href="#" title="Детский (плашки)" class="action-button shadow animate detskiy"><img src="/Det.png" width="100" height="100"></img></a>
+    <a href="#" title="Детский (титры)" class="action-button shadow animate detskiyTitles"><img src="/DetTit.png" width="100" height="100"></img></a>
+    <a href="#" title="Детский fullHD 16x9" class="action-button shadow animate detskiyHD"><img src="/DetHD.png" width="100" height="100"></img></a>
+    <a href="#" title="Авто24" class="action-button shadow animate auto24"><img src="/A24.png" width="100" height="100"></img></a>
+  </div>
+
+  <div class="excel-input" align="center">
+
+    <textarea name="excel_data" wrap="off" style="width:700px;height:140px;" autofocus></textarea>
+    <br>
+    <button id="excel2form-btn" class="btn btn-primary">Добавить данные из excel</button>
+    <br>
+    <br>
+    <hr>
+  </div>
+
+  <div id="table1" class="table-editable">
+    <span class="table-add glyphicon glyphicon-plus"></span>
+    <table class="table">
+      <tr>
+        <th>Название</th>
+        <th>Дата</th>
+        <th>Время</th>
+        <th>Жанр</th>
+      </tr>
+      <!-- This is our clonable table line -->
+      <tr class="hide">
+        <td id="td0" class="notempty" contenteditable="true"></td>
+        <td id="td1" class="notempty" contenteditable="true"></td>
+        <td id="td2" class="notempty" contenteditable="true"></td>
+        <td id="td3" class="notempty" contenteditable="true"></td>
+        <td>
+          <span class="table-remove glyphicon glyphicon-remove"></span>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="table2" class="table-editable">
+    <span class="table-add glyphicon glyphicon-plus"></span>
+    <table class="table">
+      <tr>
+        <th>Название</th>
+        <th>Дата</th>
+        <th>Время</th>
+        <th>Альфа</th>
+      </tr>
+      <!-- This is our clonable table line -->
+      <tr class="hide">
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td>
+          <span class="table-remove glyphicon glyphicon-remove"></span>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="table3" class="table-editable">
+    <span class="table-add glyphicon glyphicon-plus"></span>
+    <table class="table">
+      <tr>
+        <th>Название</th>
+        <th>Дата</th>
+        <th>Время</th>
+        <th>Животное</th>
+      </tr>
+      <!-- This is our clonable table line -->
+      <tr class="hide">
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td>
+          <span class="table-remove glyphicon glyphicon-remove"></span>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="table4" class="table-editable">
+    <span class="table-add glyphicon glyphicon-plus"></span>
+    <table class="table">
+      <tr>
+        <th>Название</th>
+        <th>Дата</th>
+        <th>Время</th>
+        <th>Страна</th>
+      </tr>
+      <!-- This is our clonable table line -->
+      <tr class="hide">
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td>
+          <span class="table-remove glyphicon glyphicon-remove"></span>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="table5" class="table-editable">
+    <span class="table-add glyphicon glyphicon-plus"></span>
+    <table class="table">
+      <tr>
+        <th>Название</th>
+        <th>Дата</th>
+        <th>Время</th>
+        <th>Персонаж</th>
+      </tr>
+      <!-- This is our clonable table line -->
+      <tr class="hide">
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td>
+          <span class="table-remove glyphicon glyphicon-remove"></span>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+<div id="table6" class="table-editable">
+    <span class="table-add glyphicon glyphicon-plus"></span>
+    <table class="table">
+      <tr>
+        <th>Имя</th>
+        <th>Описание</th>
+      </tr>
+      <!-- This is our clonable table line -->
+      <tr class="hide">
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td>
+          <span class="table-remove glyphicon glyphicon-remove"></span>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+<div id="table7" class="table-editable">
+    <span class="table-add glyphicon glyphicon-plus"></span>
+    <table class="table">
+      <tr>
+        <th>Программа</th>
+        <th>Дата</th>
+        <th>Время</th>
+      </tr>
+      <!-- This is our clonable table line -->
+      <tr class="hide">
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td>
+          <span class="table-remove glyphicon glyphicon-remove"></span>
+        </td>
+      </tr>
+    </table>
+  </div>
+  
+  <div id="table8" class="table-editable">
+    <span class="table-add glyphicon glyphicon-plus"></span>
+    <table class="table">
+      <tr>
+        <th>Название</th>
+        <th>Дата</th>
+        <th>Время</th>
+        <th>Персонаж</th>
+      </tr>
+      <!-- This is our clonable table line -->
+      <tr class="hide">
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td>
+          <span class="table-remove glyphicon glyphicon-remove"></span>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <input type="button" id="export-btn" class="btn btn-primary" value="Экспорт"></input>         
+  <p id="export"></p>
+    
+</div>
+
+    <!--<div class="b-container">
+        Sample Text
+        <a href="javascript:PopUpShow()">Show popup</a>
+    </div>-->
+    <div class="b-popup" id="popup1">
+            <div class="b-popup-content">
+                Подготовка плашек...
+                <a href="javascript:PopUpHide()">Закрыть окно</a>
+            </div>
+    <div>
+
+    <script src="/jquery.min.js"></script>
+    <script src="/jquery-ui.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/underscore.js"></script>
+    <script src="/index.js"></script>
+  
+  </body>
+</html>

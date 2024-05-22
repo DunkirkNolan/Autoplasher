@@ -1,0 +1,378 @@
+table, th, td {
+  border: 2px solid grey;
+}
+
+.table-editable {
+  position: relative;
+}
+
+.table-editable .glyphicon {
+  font-size: 20px;
+}
+
+.table-remove {
+  color: #FF8D63;
+  cursor: pointer;
+}
+.table-remove:hover {
+  color: #FFAB8C;
+}
+
+.table-up, .table-down {
+  color: #007;
+  cursor: pointer;
+}
+.table-up:hover, .table-down:hover {
+  color: #00f;
+}
+
+.table-add {
+  color: #070;
+  cursor: pointer;
+  position: absolute;
+  top: 8px;
+  right: 0;
+}
+.table-add:hover {
+  color: #0b0;
+}
+
+#tooltip {
+    display: block;
+    padding: 5px;
+    border: 4px solid #f3c43c;
+    border-radius: 5px;
+    color: #201600;
+    transition: all 0.3s ease-out;
+    background-color:white;
+}
+
+.action-button {
+  position: relative;
+  padding: 10px 40px;
+  margin: 0px 10px 10px 0px;
+  float: left;
+  border-radius: 10px;
+  font-family: 'Pacifico', cursive;
+  font-size: 25px;
+  color: #FFF;
+  text-decoration: none;
+}
+
+.illPlus {
+  background-color: #BDD1F1;
+  border-bottom: 5px solid #8AAADE;
+  text-shadow: 0px -2px #8AAADE;
+}
+
+.rusIll {
+  background-color: #FFAB8C;
+  border-bottom: 5px solid #FF8D63;
+  text-shadow: 0px -2px #FF8D63;
+}
+
+.zooPark {
+  background-color: #DAF1E9;
+  border-bottom: 5px solid #AADBC8;
+  text-shadow: 0px -2px #AADBC8;
+}
+
+.euroKino {
+  background-color: #FFD99D;
+  border-bottom: 6px solid #FFC872;
+  text-shadow: 0px -2px #FFC872;
+}
+
+.detskiy {
+  background-color: #FFEA6D;
+  border-bottom: 5px solid #FFE444;
+  text-shadow: 0px -2px #FFE444;
+}
+
+.detskiyTitles {
+  background-color: #C7E3FB;
+  border-bottom: 5px solid #93C7F2;
+  text-shadow: 0px -2px #93C7F2;
+}
+
+.auto24 {
+  background-color: #FFB5AF;
+  border-bottom: 5px solid #E57E76;
+  text-shadow: 0px -2px #E57E76;
+}
+
+
+.action-button:active {
+  transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
+  border-bottom: 1px solid;
+}
+
+.main {
+  width: 800px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+@import "nib"
+
+@keyframes spin
+  from
+    transform rotate(0deg)
+  to
+    transform rotate(360deg)
+
+ placeholder()
+  ::-webkit-input-placeholder
+    {block}
+  :-moz-placeholder
+    {block}
+  ::-moz-placeholder
+    {block}
+  :-ms-input-placeholder
+    {block}
+
+text-glow()
+  text-shadow 0 0 arguments
+
+box-glow()
+  box-shadow 0 0 arguments
+
+// Page
+page-font = sans-serif
+page-background-color = darken(white, 90%)
+
+progress-bubble($color, $amount)
+  // Progress Bar
+  progress-primary-color = $color
+  progress-size = 250px
+  progress-border-size = 5px
+  progress-inner-border-size = 5px
+  progress-inner-size = progress-size - (progress-border-size + progress-inner-border-size)
+  progress-inner-border = progress-inner-border-size solid page-background-color
+
+  progress-alpha = 50%
+  progress-level-change-speed = 1s
+  progress-swish-speed = 10s
+  progress-percent-color = darken(progress-primary-color, 40%)
+
+  progress-percent-glow = 10px darken(progress-percent-color, 25%)
+  progress-box-glow = 20px darken(progress-percent-color, 25%)
+  progress-liquid-glow = 20px darken(progress-percent-color, 5%)
+
+  progress-glare-background = rgba(255, 255, 255, 0.15)
+  progress-level = (100% - $amount)
+  
+  .progress
+    +cache('.progress')
+      position relative
+      border-radius 50%
+
+    +cache('.progress' + progress-size)
+      width progress-size
+      height progress-size
+    
+    +cache('.progress' + progress-border-size + " " + progress-primary-color)
+      border progress-border-size solid progress-primary-color
+    
+    +cache('.progress' + progress-box-glow)
+      box-glow progress-box-glow
+    
+    +cache('.progress' + progress-level-change-speed)
+      transition all progress-level-change-speed ease
+      
+    .inner
+      +cache('.progress .inner')
+        position absolute
+        overflow hidden
+        z-index 2
+        border-radius 50%
+        
+      +cache('.progress .inner' + progress-inner-size)
+        width progress-inner-size
+        height progress-inner-size
+
+      +cache('.progress .inner' + progress-inner-border)
+        border progress-inner-border
+        
+      +cache('.progress .inner' + progress-level-change-speed)
+        transition all progress-level-change-speed ease
+
+      .water
+        +cache('.progress .inner .water')
+          position absolute
+          z-index 1
+          width 200%
+          height 200%
+          left -50%
+          border-radius 40%
+          animation-iteration-count infinite
+          animation-timing-function linear
+          animation-name spin
+        
+        +cache('.progress .inner .water' + progress-level)
+          top progress-level
+        
+        +cache('.progress .inner .water' + progress-primary-color + " " + progress-alph)
+          background alpha(progress-primary-color, progress-alpha)
+        
+        +cache('.progress .inner .water' + progress-level-change-speed)
+          transition all progress-level-change-speed ease
+        
+        +cache('.progress .inner .water' + progress-swish-speed)
+          animation-duration progress-swish-speed
+        
+        +cache('.progress .inner .water' + progress-liquid-glow)
+          box-glow progress-liquid-glow
+
+      .glare
+        +cache('.progress .inner .glare')
+          position absolute
+          top -120%
+          left -120%
+          z-index 5
+          width 200%
+          height 200%
+          transform rotate(45deg)
+          border-radius 50%
+        
+        +cache('.progress .inner .glare' + progress-glare-background)
+          background-color progress-glare-background
+        
+        +cache('.progress .inner .glare' + progress-level-change-speed)
+          transition all progress-level-change-speed ease
+
+      .percent
+        +cache('.progress .inner .percent')
+          position absolute
+          top 0
+          left 0
+          width 100%
+          height 100%
+          font-weight bold
+          text-align center
+          
+        +cache('.progress .inner .percent' + progress-inner-size)
+          line-height progress-inner-size
+          font-size (progress-inner-size / 2.6px)
+        
+        +cache('.progress .inner .percent' + progress-percent-color)
+          color progress-percent-color
+        
+        +cache('.progress .inner .percent' + progress-percent-glow)
+          text-glow progress-percent-glow
+        
+        +cache('.progress .inner .percent' + progress-level-change-speed)
+          transition all progress-level-change-speed ease
+
+*
+  box-sizing border-box
+
+html, body
+  height 100%
+
+body
+  background-color page-background-color
+  font-family page-font
+  font-size 15px
+  color darken(white, 20%)
+
+input[type="text"]
+  background-color transparent
+  margin-top 30px
+  border 0
+  border-bottom solid 1px lighten(blue, 50%)
+  text-align center
+  font-size 20px
+  color lighten(rgb(50, 118, 237), 15%)
+  text-glow 3px lighten(rgb(50, 118, 237), 15%)
+  width 45px
+  display inline-block
+  
+input:focus
+  outline 0
+  border-bottom dashed 1px lighten(red, 50%)
+
+input::selection
+  color page-background-color
+  background-color lighten(lightblue, 30%)
+
++placeholder()
+  color lighten(rgb(50, 118, 237), 35%)
+  text-glow 3px lighten(rgb(50, 118, 237), 35%)
+
+.wrapper
+  display flex
+  align-items center
+  justify-content center
+  flex-direction column
+  height 100%
+
+.green
+  margin-top 15px
+  progress-bubble(rgb(83, 252, 83), 75%)
+
+.red
+  margin-top 15px
+  progress-bubble(rgb(237, 59, 59), 25%)
+
+.orange
+  margin-top 15px
+  progress-bubble(rgb(240, 124, 62), 50%)
+
+#copyright
+  margin-top 25px
+  background-color transparent
+  font-size 14px
+  color darken(white, 30%)
+  text-align center
+  
+  div
+    margin-bottom 10px
+  
+  a
+  a:link
+    color gray
+    text-decoration none
+    border-bottom 1px solid gray
+    padding-bottom 2px
+
+  a:active
+    color darken(white, 30%)
+  
+  a:hover
+    color darken(white, 30%)
+    border-bottom 1px solid darken(white, 30%)
+    padding-bottom 4px
+
+.instructions
+  display inline-block
+  margin 5px 0
+  font-size 16px
+
+.b-container{
+    width:200px;
+    height:150px;
+    background-color: #ccc;
+    margin:0px auto;
+    padding:10px;
+    font-size:30px;
+    color: #fff;
+}
+.b-popup{
+    width:100%;
+    min-height:100%;
+    background-color: rgba(0,0,0,0.5);
+    overflow:hidden;
+    position:fixed;
+    top:0px;
+}
+.b-popup .b-popup-content{
+    margin:40px auto 0px auto;
+    width:700px;
+    height: 140px;
+    padding:10px;
+    background-color: #c5c5c5;
+    border-radius:5px;
+    box-shadow: 0px 0px 10px #000;
+}
