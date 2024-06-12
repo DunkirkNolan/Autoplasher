@@ -32,8 +32,12 @@ execBatch("startae.bat");
 //step 2) create the server
 http.createServer(serverStart)
 
-//step 3) listen for an HTTP request on port 3000
-.listen(3303);
+var server = http.createServer(serverStart);
+
+// Step 3: Listen for an HTTP request on port 3303
+server.listen(3303, function() {
+    console.log("HTTP server started on" validIpAddressRegex(), server.address().address, server.address().port);
+});
 
 console.log("autoplasher server started" + '\n');
 outputSkull_nolinebreak();

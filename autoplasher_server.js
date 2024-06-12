@@ -32,8 +32,26 @@ execBatch("startae.bat");
 //step 2) create the server
 http.createServer(serverStart)
 
-//step 3) listen for an HTTP request on port 3000
-.listen(3303);
+function getIPAddress() {
+    var interfaces = require('os').networkInterfaces();
+    for (var devName in interfaces) {
+        var iface = interfaces[devName];
+        for (var i = 0; i < iface.length; i++) {
+            var alias = iface[i];
+            if (alias.family === 'IPv4' && !alias.internal) {
+                return alias.address;
+            }
+        }
+    }
+    return '127.0.0.1';
+}
+
+var server = http.createServer(serverStart);
+
+server.listen(3303, function() {
+    var ip = getIPAddress();
+    console.log("HTTP server started on http://%s:%s", ip, server.address().port);
+});
 
 console.log("autoplasher server started" + '\n');
 outputSkull_nolinebreak();
