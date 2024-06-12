@@ -17,7 +17,7 @@ This repository contains local JavaScript code designed to automate the creation
 
 ## How to use:
 
-- Insert a proper path for every .bat file iin main folder - for example C:\Program Files\Adobe\Adobe After Effects 2024\Support Files
+- Insert a proper path for every .bat file in main folder - for example C:\Program Files\Adobe\Adobe After Effects 2024\Support Files
 - Launch k100apHD_start and copy server address from the last string
 - Enter server's address in your browser
 - Copy all the information for the packshot from excel table
